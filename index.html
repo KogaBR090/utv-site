@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UTV Produtora</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="UTV, produtora audiovisual de Londrina com canal próprio no ar 24 horas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="page-home">
+
+<div class="progress" aria-hidden="true"></div>
+
+<div class="intro" aria-hidden="true">
+  <span class="intro__logo">UTV</span>
+  <span class="intro__tc">00:00:00:00</span>
+</div>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__logo" href="#topo" aria-label="UTV, início">UTV</a>
+    <nav class="nav__links" aria-label="Principal">
+      <a href="#topo">Início</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+      <a href="canal.html"><span class="live-dot"></span>Canal 24h</a>
+    </nav>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-label="Menu">
+  <button class="nav__toggle menu__close cta" type="button" style="display:inline-flex">Fechar</button>
+  <a href="#topo">Início</a>
+      <a href="#portfolio">Portfólio</a>
+  <a href="#servicos">Serviços</a>
+  <a href="#sobre">Sobre</a>
+  <a href="#contato">Contato</a>
+  <a href="canal.html">Canal 24h</a>
+</div>
+
+<main>
+
+  <section id="topo" class="scene hero" data-nav="dark">
+    <div class="scene__media" data-hero-media><img src="assets/img/contraluz.jpg" alt=""></div>
+    <div class="scene__shade"></div>
+    <div class="vf" aria-hidden="true">
+      <span class="vf__tl"><span class="live-dot"></span>REC <span data-tc>00:00:00:00</span></span>
+      <span class="vf__tr">4K &#160; 24 FPS</span>
+    </div>
+    <div class="hero__content" data-hero-content>
+      <h1 class="display d-xl" data-hero-title>Feito para <em>ser</em> visto</h1>
+      <span class="hero__rule" data-hero-rule aria-hidden="true"></span>
+      <p class="hero__sub" data-intro-item>Produtora audiovisual em Londrina</p>
+    </div>
+  </section>
+
+  <section id="manifesto" class="scene manifesto" data-nav="dark" aria-label="Manifesto">
+    <div class="scene__media" data-parallax><img src="assets/img/estudio.jpg" alt=""></div>
+    <div class="scene__shade"></div>
+    <div class="wrap manifesto__grid">
+      <p class="manifesto__lead" data-lines>Toda produção começa com uma pergunta: o que esta história precisa para ser vista? A resposta está no roteiro, na luz, no corte e na hora certa de ir ao ar.</p>
+      <div class="manifesto__text">
+        <span class="bar" data-bar aria-hidden="true"></span>
+        <p data-lines>A UTV trabalha no ritmo da televisão. Prazo é prazo, o ao vivo não tem segunda chance e cada quadro precisa funcionar na primeira vez que alguém o vê.</p>
+        <p data-lines>Do institucional ao documentário, da campanha à transmissão ao vivo, o cuidado é o mesmo: direção atenta, imagem bem tratada e uma equipe que acompanha o projeto do primeiro rascunho à entrega. [Complete com a história real da UTV.]</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="showreel" class="scene reel" data-nav="dark" aria-label="Showreel">
+    <div class="reel__frame" data-reel-frame><img src="assets/img/luz-quente.jpg" alt="" data-reel-img>
+    <div class="vf" aria-hidden="true">
+      <span class="vf__tl"><span class="live-dot"></span>REC <span data-tc>00:00:00:00</span></span>
+      <span class="vf__tr">Showreel [ano]</span>
+    </div>
+    </div>
+    <div class="reel__content" data-reel-content>
+      <h2 class="wide"><b>UTV</b> <span data-reel-word>em movimento</span></h2>
+      <button class="cta ul" type="button" data-video="showreel" data-title="Showreel UTV">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"/></svg>
+        Assistir ao showreel
+      </button>
+    </div>
+  </section>
+
+  <section id="portfolio" class="section" data-nav="light">
+    <div class="wrap">
+      <div class="portfolio__head">
+        <h2 class="display d-l" data-chars>Portfólio</h2>
+        <div class="filters" role="group" aria-label="Filtrar por categoria" data-filters></div>
+      </div>
+      <div class="works" data-works></div>
+    </div>
+  </section>
+
+  <section id="servicos" class="section" data-nav="light">
+    <div class="wrap services">
+      <div class="services__intro">
+        <h2 class="display d-m" data-lines>Da ideia <em>à</em> tela</h2>
+        <p class="lede">Uma equipe só, do primeiro rascunho à exibição, para o projeto não se perder entre fornecedores.</p>
+      </div>
+      <div class="services__list" data-services>
+        <span class="services__track" aria-hidden="true"><span class="services__fill" data-services-fill></span></span>
+        <div data-service>
+          <span class="step__count">Etapa 1 de 3</span>
+          <h3>Pré-produção</h3>
+          <p>Antes de ligar a câmera: roteiro, direção de arte, escolha de locações e um plano de filmagem que cabe no prazo.</p>
+        </div>
+        <div data-service>
+          <span class="step__count">Etapa 2 de 3</span>
+          <h3>Produção</h3>
+          <p>No set e no estúdio: captação, iluminação, áudio direto, gravação com várias câmeras e transmissão ao vivo.</p>
+        </div>
+        <div data-service>
+          <span class="step__count">Etapa 3 de 3</span>
+          <h3>Pós-produção</h3>
+          <p>Na ilha de edição: montagem, correção de cor, motion graphics, trilha e mixagem, até a versão que vai ao ar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene channel" data-nav="dark" aria-label="Canal UTV">
+    <div class="scene__media" data-parallax><img src="assets/img/palco.jpg" alt=""></div>
+    <div class="scene__shade"></div>
+    <div class="wrap channel__content">
+      <span class="status"><span class="live-dot"></span>Ao vivo agora</span>
+      <h2 class="display d-l" data-lines>O canal que nunca sai do ar</h2>
+      <p class="lede" data-fade>Programação própria, reprises e acervo, 24 horas por dia, na TV e no YouTube.</p>
+      <a class="cta ul" href="canal.html" data-fade>Assistir ao vivo</a>
+    </div>
+  </section>
+
+  <section class="backstage" data-nav="light" aria-labelledby="bastidores" data-backstage>
+    <div class="backstage__viewport">
+      <div class="backstage__track" data-backstage-track>
+        <div class="backstage__intro">
+          <h2 id="bastidores" class="display d-m">Bastidores</h2>
+          <p class="lede">Como os projetos acontecem, do set à ilha de edição.</p>
+        </div>
+        <figure class="shot shot--a"><div class="shot__media"><img src="assets/img/janela.jpg" alt="" data-shot-img></div><figcaption>[Legenda: equipe no set]</figcaption></figure>
+        <figure class="shot shot--b"><div class="shot__media"><img src="assets/img/ilha.jpg" alt="" data-shot-img></div><figcaption>[Legenda: ilha de edição]</figcaption></figure>
+        <figure class="shot shot--c"><div class="shot__media"><img src="assets/img/palco.jpg" alt="" data-shot-img></div><figcaption>[Legenda: estúdio]</figcaption></figure>
+        <figure class="shot shot--b"><div class="shot__media"><img src="assets/img/crepusculo.jpg" alt="" data-shot-img></div><figcaption>[Legenda: externa]</figcaption></figure>
+        <figure class="shot shot--a"><div class="shot__media"><img src="assets/img/cidade.jpg" alt="" data-shot-img></div><figcaption>[Legenda: transmissão ao vivo]</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" class="section" data-nav="light">
+    <div class="wrap about">
+      <div class="about__media" data-clip>
+        <img src="assets/img/janela.jpg" alt="" data-inner-parallax>
+        <small>[Foto de bastidores]</small>
+      </div>
+      <div class="about__text">
+        <h2 class="display d-s" data-lines>Olhar de televisão, acabamento de cinema</h2>
+        <p class="lede">[História da UTV em 2 ou 3 frases: ano de fundação, trajetória e o que diferencia a produtora.]</p>
+        <p class="about__claim" data-lines>Desde <em>[ano]</em>, <em>[nº]</em> projetos entregues e um canal no ar <em>24 horas</em> por dia.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="clients" data-nav="light" aria-labelledby="clientes">
+    <h2 id="clientes" class="wrap">Quem já filmou com a UTV</h2>
+    <div class="marquee" data-marquee>
+      <ul class="marquee__row" data-dir="-1">
+        <li>UniFil</li><li>Colégio Londrinense</li><li class="tbd">[Cliente]</li><li class="tbd">[Cliente]</li>
+      </ul>
+      <ul class="marquee__row" data-dir="1">
+        <li class="tbd">[Cliente]</li><li class="tbd">[Cliente]</li><li class="tbd">[Cliente]</li><li class="tbd">[Cliente]</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contato" class="scene contact" data-nav="dark">
+    <div class="scene__media" data-parallax><img src="assets/img/cidade.jpg" alt=""></div>
+    <div class="scene__shade"></div>
+    <div class="contact__content">
+      <h2 class="wide"><b>Vamos</b> <span data-track>produzir juntos</span></h2>
+      <div class="slate" data-slate>
+        <div class="slate__sticks" aria-hidden="true">
+          <span class="slate__stick slate__stick--top" data-slate-stick></span>
+          <span class="slate__stick"></span>
+        </div>
+        <dl class="slate__grid">
+          <div class="slate__cell slate__cell--full"><dt>Produção</dt><dd>UTV Produtora</dd></div>
+          <div class="slate__cell"><dt>Cena</dt><dd>01</dd></div>
+          <div class="slate__cell"><dt>Take</dt><dd>01</dd></div>
+          <div class="slate__cell"><dt>Data</dt><dd data-today>[data]</dd></div>
+          <div class="slate__cell slate__cell--full"><dt>WhatsApp</dt><dd><a class="ul" href="https://wa.me/5543000000000">(43) [número]</a></dd></div>
+          <div class="slate__cell slate__cell--half"><dt>E-mail</dt><dd><a class="ul" href="mailto:contato@utv.com.br">[email@utv.com.br]</a></dd></div>
+          <div class="slate__cell slate__cell--half"><dt>Instagram</dt><dd><a class="ul" href="https://instagram.com/">@[perfil]</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer" data-nav="dark">
+  <div class="steps" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="footer__cols">
+      <div class="footer__col">
+        <h2>Navegação</h2>
+        <a href="#topo">Início</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+      </div>
+      <div class="footer__col">
+        <h2>Redes</h2>
+        <a href="https://instagram.com/">Instagram</a>
+        <a href="https://www.youtube.com/">YouTube</a>
+        <a href="https://vimeo.com/">Vimeo</a>
+        <a href="https://www.linkedin.com/">LinkedIn</a>
+      </div>
+      <div class="footer__col">
+        <h2>Estúdio</h2>
+        <p>[Rua, número]<br>Londrina, PR<br>[CEP]</p>
+        <p>Segunda a sexta, [9h às 18h]</p>
+      </div>
+      <div class="footer__col">
+        <h2>Canal UTV</h2>
+        <a class="footer__air" href="canal.html"><span class="live-dot"></span>No ar agora</a>
+        <a href="canal.html#onde">Anuncie no Canal UTV</a>
+        <a href="#contato">Trabalhe conosco</a>
+      </div>
+    </div>
+    <p class="footer__mark" aria-hidden="true">UTV</p>
+    <div class="footer__base">
+      <span>© 2026 UTV Produtora. CNPJ [00.000.000/0000-00]</span>
+      <a class="ul" href="#">Política de privacidade</a>
+    </div>
+  </div>
+</footer>
+
+<dialog class="lightbox" data-lightbox aria-labelledby="lightbox-title">
+  <div class="lightbox__inner">
+    <div class="lightbox__head">
+      <h2 class="lightbox__title" id="lightbox-title"></h2>
+      <button class="cta ul" type="button" data-close>Fechar</button>
+    </div>
+    <div class="lightbox__screen" data-screen></div>
+  </div>
+</dialog>
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/vendor/SplitText.min.js"></script>
+<script src="assets/vendor/Flip.min.js"></script>
+<script src="assets/vendor/lenis.min.js"></script>
+<script src="assets/js/conteudo.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
