@@ -231,6 +231,9 @@ p { text-wrap: pretty; }
   display: flex; flex-direction: column; gap: 22px; padding: 0; border: 0; background: none; text-align: left; cursor: pointer; min-width: 0;
 }
 .work[hidden] { display: none !important; }
+/* Cartões que entram num filtro: sobem com fade, um depois do outro */
+@keyframes work-in { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
+.work.is-entering { animation: work-in .8s var(--ease) both; animation-delay: var(--d, 0s); }
 .work__media { position: relative; display: block; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; background: var(--night); }
 .work__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: filter .6s ease; }
 .work:hover .work__media img { filter: brightness(.75); }

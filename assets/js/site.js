@@ -47,23 +47,65 @@
     });
   }
 
+  var filterRun = 0;
   function applyFilter(cat) {
     $$('button', filters).forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.cat === cat)); });
     var items = $$('.work', works);
-    var state = motion && window.Flip ? window.Flip.getState(items) : null;
-    items.forEach(function (w) { w.hidden = !(cat === 'Todos' || w.dataset.cat === cat); });
-    markFeature();
-    if (state) {
-      window.Flip.from(state, {
-        duration: 0.9,
-        ease: 'power3.inOut',
-        absolute: true,
-        nested: true,
-        onEnter: function (els) { return G.fromTo(els, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7, delay: 0.25, ease: 'power3.out' }); },
-        onComplete: function () { ST.refresh(); }
-      });
-    } else if (ST) {
-      ST.refresh();
+    var show = function (w) { return cat === 'Todos' || w.dataset.cat === cat; };
+    var run = ++filterRun;
+
+    if (!motion || !window.Flip) {
+      items.forEach(function (w) { w.hidden = !show(w); });
+      markFeature();
+      if (ST) ST.refresh();
+      return;
+    }
+
+    // Cartões que saem somem com fade, os que continuam deslizam para a nova posição
+    // e os que entram sobem com fade. A grade mantém a altura durante tudo isso
+    // para a seção de baixo não subir por cima dos cartões.
+    var leave = items.filter(function (w) { return !w.hidden && !show(w); });
+    var stay = items.filter(function (w) { return !w.hidden && show(w); });
+    var enter = items.filter(function (w) { return w.hidden && show(w); });
+    works.style.minHeight = works.offsetHeight + 'px';
+
+    var pending = 2;
+    function settle() {
+      if (--pending === 0 && run === filterRun) {
+        works.style.minHeight = '';
+        ST.refresh();
+      }
+    }
+
+    function swap() {
+      if (run !== filterRun) return;
+      G.killTweensOf(items);
+      G.set(items, { clearProps: 'opacity,transform' });
+      var state = stay.length ? window.Flip.getState(stay) : null;
+      items.forEach(function (w) { w.hidden = !show(w); });
+      markFeature();
+      if (state) {
+        window.Flip.from(state, { duration: 0.6, ease: 'power3.inOut', absolute: true, nested: true, onComplete: settle });
+      } else {
+        settle();
+      }
+      if (enter.length) {
+        // Entrada por CSS: não depende do ritmo do GSAP, então aparece já na primeira troca
+        enter.forEach(function (w, i) {
+          w.style.setProperty('--d', (i * 0.08) + 's');
+          w.classList.add('is-entering');
+          w.addEventListener('animationend', function () { w.classList.remove('is-entering'); }, { once: true });
+        });
+        setTimeout(settle, (enter.length - 1) * 80 + 900);
+      } else {
+        settle();
+      }
+    }
+
+    if (leave.length) {
+      G.to(leave, { opacity: 0, y: -24, duration: 0.35, stagger: 0.04, ease: 'power2.in', onComplete: swap });
+    } else {
+      swap();
     }
   }
 
@@ -76,7 +118,7 @@
       b.dataset.cat = t.categoria || '';
       b.dataset.video = t.video || '';
       b.dataset.title = t.titulo || '';
-      b.innerHTML = '<span class="work__media"><img alt="" loading="lazy"></span>' +
+      b.innerHTML = '<span class="work__media"><img alt=""></span>' +
         '<span class="work__meta"><span class="work__title"></span><span class="work__info"></span></span>';
       b.querySelector('img').src = t.imagem || (id ? 'https://i.ytimg.com/vi/' + id + '/maxresdefault.jpg' : FALLBACK[i % FALLBACK.length]);
       b.querySelector('.work__title').textContent = t.titulo || '';
