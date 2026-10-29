@@ -117,10 +117,12 @@
       b.className = 'work';
       b.dataset.cat = t.categoria || '';
       b.dataset.video = t.video || '';
+      b.dataset.arquivo = t.arquivo || '';
       b.dataset.title = t.titulo || '';
       b.innerHTML = '<span class="work__media"><img alt=""></span>' +
         '<span class="work__meta"><span class="work__title"></span><span class="work__info"></span></span>';
       b.querySelector('img').src = t.imagem || (id ? 'https://i.ytimg.com/vi/' + id + '/maxresdefault.jpg' : FALLBACK[i % FALLBACK.length]);
+      if (t.foco) b.querySelector('img').style.objectPosition = t.foco;
       b.querySelector('.work__title').textContent = t.titulo || '';
       b.querySelector('.work__info').textContent = [t.cliente, t.ano].filter(Boolean).join(', ');
       works.appendChild(b);
@@ -145,7 +147,7 @@
 
   /* ---------- Janela de vídeo ---------- */
   var lb = $('[data-lightbox]');
-  function openVideo(url, title) {
+  function openVideo(url, title, arquivo) {
     if (!lb) return;
     $('#lightbox-title', lb).textContent = title || '';
     var screen = $('[data-screen]', lb);
@@ -153,10 +155,14 @@
     var id = ytId(url);
     if (id) {
       screen.appendChild(makeFrame('https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0', title));
+    } else if (arquivo) {
+      var vd = document.createElement('video');
+      vd.src = arquivo; vd.controls = true; vd.autoplay = true; vd.playsInline = true;
+      screen.appendChild(vd);
     } else {
       var p = document.createElement('p');
       p.className = 'placeholder';
-      p.textContent = '[Cole o link do YouTube deste vídeo em conteudo.js]';
+      p.textContent = 'Vídeo indisponível no momento.';
       screen.appendChild(p);
     }
     if (typeof lb.showModal === 'function') lb.showModal(); else lb.setAttribute('open', '');
@@ -176,7 +182,8 @@
   document.addEventListener('click', function (e) {
     var v = e.target.closest('[data-video]');
     if (v) {
-      openVideo(v.dataset.video === 'showreel' ? C.showreel : v.dataset.video, v.dataset.title);
+      var reel = v.dataset.video === 'showreel';
+      openVideo(reel ? C.showreel : v.dataset.video, v.dataset.title, reel ? C.showreelArquivo : v.dataset.arquivo);
       return;
     }
     if (e.target.closest('[data-close]') && lb) lb.close();
