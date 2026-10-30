@@ -480,9 +480,10 @@ p { text-wrap: pretty; }
 
 /* Logotipo em imagem */
 .nav__logo { padding: 6px 0; letter-spacing: 0; }
-.nav__logo img { display: block; height: 44px; width: auto; }
+.nav__logo { flex: none; }
+.nav__logo img { display: block; flex: none; height: 44px; width: auto; max-width: none; aspect-ratio: 140 / 104; object-fit: contain; }
 .nav.on-light .nav__logo img { filter: brightness(0); }
-.intro__logo { height: clamp(72px, 12vw, 120px); width: auto; padding-left: 0; }
+.intro__logo { flex: none; align-self: auto; height: clamp(72px, 12vw, 120px); width: auto; max-width: none; aspect-ratio: 140 / 104; object-fit: contain; padding-left: 0; }
 
 /* Aviso de rolagem: aparece só depois de alguns segundos parado */
 .idle-hint {
