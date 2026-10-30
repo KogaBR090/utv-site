@@ -477,3 +477,9 @@ p { text-wrap: pretty; }
   .live-dot { animation: none; }
   .js .intro { display: none; }
 }
+
+/* Logotipo em imagem */
+.nav__logo { padding: 6px 0; letter-spacing: 0; }
+.nav__logo img { display: block; height: 44px; width: auto; }
+.nav.on-light .nav__logo img { filter: brightness(0); }
+.intro__logo { height: clamp(72px, 12vw, 120px); width: auto; padding-left: 0; }
