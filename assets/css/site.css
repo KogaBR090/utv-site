@@ -483,3 +483,18 @@ p { text-wrap: pretty; }
 .nav__logo img { display: block; height: 44px; width: auto; }
 .nav.on-light .nav__logo img { filter: brightness(0); }
 .intro__logo { height: clamp(72px, 12vw, 120px); width: auto; padding-left: 0; }
+
+/* Aviso de rolagem: aparece só depois de alguns segundos parado */
+.idle-hint {
+  position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); z-index: 35;
+  display: inline-flex; align-items: center; gap: 12px; padding: 10px 20px 10px 16px; border-radius: 999px;
+  background: rgba(18, 19, 21, .78); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); color: #FFFFFF;
+  font-size: 13px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; white-space: nowrap;
+  opacity: 0; transform: translate(-50%, 16px); pointer-events: none;
+  transition: opacity .5s ease, transform .6s var(--ease);
+}
+.idle-hint.is-visible { opacity: 1; transform: translate(-50%, 0); }
+.idle-hint__track { position: relative; display: block; width: 2px; height: 26px; overflow: hidden; border-radius: 2px; background: rgba(255, 255, 255, .28); }
+.idle-hint__track::after { content: ""; position: absolute; left: 0; top: -45%; width: 2px; height: 45%; border-radius: 2px; background: var(--red); animation: idleDrop 1.6s var(--ease) infinite; }
+@keyframes idleDrop { to { top: 100%; } }
+@media (prefers-reduced-motion: reduce) { .idle-hint__track::after { animation: none; top: 30%; } }

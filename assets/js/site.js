@@ -290,6 +290,26 @@
     });
   }
 
+  /* ---------- Aviso de rolagem quando a pessoa fica parada ---------- */
+  var hint = $('[data-idle-hint]');
+  if (hint) {
+    var hintText = $('[data-idle-text]', hint);
+    if (hintText && window.matchMedia('(pointer: coarse)').matches) hintText.textContent = 'Deslize para continuar';
+    var idleTimer = null;
+    var showHint = function () {
+      var nearEnd = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 320;
+      var busy = (lb && lb.open) || (menu && menu.classList.contains('is-open'));
+      if (!nearEnd && !busy) hint.classList.add('is-visible');
+    };
+    var resetIdle = function () {
+      hint.classList.remove('is-visible');
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(showHint, 5000);
+    };
+    ['scroll', 'wheel', 'touchstart', 'keydown', 'pointerdown'].forEach(function (ev) { window.addEventListener(ev, resetIdle, { passive: true }); });
+    resetIdle();
+  }
+
   /* ---------- Sem animação: para aqui ---------- */
   var intro = $('.intro');
   if (!motion) {
